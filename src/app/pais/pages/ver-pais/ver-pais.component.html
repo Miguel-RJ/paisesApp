@@ -5,29 +5,23 @@
 <ng-template #divPais>
     <div class="row">
         <div class="col-4">
-            <h3>Bandera: <img [src]="pais?.flags?.png" class="img-thumbnail"></h3>
+            <h3 class="animate__animated animate__bounceIn">Bandera: <img [src]="pais?.flags?.png"
+                    class="img-thumbnail"></h3>
         </div>
         <div class="col">
-            <h3>Información</h3>
-            <ul class="list-group">
+            <h3 class="animate__animated animate__lightSpeedInRight">Información</h3>
+            <ul class="list-group animate__animated animate__lightSpeedInRight">
                 <li class="list-group-item"><strong>Población:</strong>{{pais?.population | number}}</li>
                 <li class="list-group-item"><strong>Código numérico:</strong>{{pais?.ccn3}}</li>
                 <li class="list-group-item"><strong>Código alpha 3:</strong>{{pais?.cca3}}</li>
             </ul>
         </div>
     </div>
-    <h3>Traducciones</h3>
+    <h3 class="animate__animated animate__lightSpeedInRight">Traducciones</h3>
     <div class="row">
         <div class="col">
-            <span class="badge bg-primary mr-1">{{pais?.translations!['ara'].official}}</span>
-            <span class="badge bg-primary mr-1">{{pais?.translations!['bre'].official}}</span>
-            <span class="badge bg-primary mr-1">{{pais?.translations!['ces'].official}}</span>
-            <span class="badge bg-primary mr-1">{{pais?.translations!['cym'].official}}</span>
-            <span class="badge bg-primary mr-1">{{pais?.translations!['deu'].official}}</span>
-            <span class="badge bg-primary mr-1">{{pais?.translations!['est'].official}}</span>
-            <span class="badge bg-primary mr-1">{{pais?.translations!['ara'].official}}</span>
-            <span class="badge bg-primary mr-1">{{pais?.translations!['ara'].official}}</span>
-            <span class="badge bg-primary mr-1">{{pais?.translations!['ara'].official}}</span>
+            <span *ngFor="let item of pais?.translations | keyvalue"
+                class="badge bg-primary mr-1 animate__animated animate__bounceIn">{{item.value.official}}</span>
         </div>
     </div>
     <!-- <pre class="mt-5">
